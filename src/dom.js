@@ -1,8 +1,15 @@
-const dom = {
-    num1: document.getElementById('num-one'),
-    num2: document.getElementById('num-two'),
-    btn: document.getElementById('sum'),
-    output: document.getElementById('output'),
-};
+import { X_CLASS, CIRCLE_CLASS, board, circleTurn } from './data.js';
 
-export default dom;
+export function placeMark(cell, currentClass) {
+    cell.classList.add(currentClass);
+}
+
+export function setBoardHoverClass() {
+    board.classList.remove(X_CLASS);
+    board.classList.remove(CIRCLE_CLASS);
+    if (circleTurn) {
+        board.classList.add(CIRCLE_CLASS);
+    } else {
+        board.classList.add(X_CLASS);
+    }
+}
